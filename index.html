@@ -4,28 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     
     <style>
-        .container {
-            text-align: center; 
-            max-width: 800px;   
-            margin: 0 auto;
+       
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --text-color: #1d1d1f;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --btn-bg: rgba(255, 255, 255, 0.4);
+            --btn-hover: rgba(255, 255, 255, 0.7);
+            --link-color: #0066cc;
         }
 
+     
+        [data-theme="dark"] {
+            --glass-bg: rgba(20, 20, 20, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-color: #f5f5f7;
+            --bg-gradient: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            --btn-bg: rgba(255, 255, 255, 0.1);
+            --btn-hover: rgba(255, 255, 255, 0.2);
+            --link-color: #64d2ff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            transition: background 0.5s ease;
+        }
+
+        .container {
+            text-align: center; 
+            max-width: 700px;   
+            margin: 0 auto;
+            
+            
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px; 
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25); 
+        }
+
+        
         .profile {
             width: 150px;       
-            height: auto;     
+            height: 150px;   
+            object-fit: cover;
+            border-radius: 50%;
             margin-top: 20px;   
             margin-bottom: 20px;
+            border: 4px solid var(--glass-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+       
+        h1 {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+       
+        .info-section {
+            margin-top: 30px;
+            text-align: left; 
+            padding: 0 20px;
+        }
+
+        h3 {
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            opacity: 0.8;
         }
 
         ul {
             list-style-type: none; 
             padding: 0;
         }
+
+        li {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: rgba(255,255,255,0.05); 
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: translateX(5px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-weight: 600;
+            display: block; 
+        }
+
+      
+        button {
+            margin-top: 30px;
+            padding: 12px 30px;
+            border: 1px solid var(--glass-border);
+            background: var(--btn-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px; /* Pill shape */
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--btn-hover);
+            transform: scale(1.05);
+        }
     </style>
-    </head>
+</head>
 <body>
     
 <div class="container">
@@ -49,7 +172,7 @@
                 <a href="Coursera CDAVI43NKN8K.pdf" target="_blank">Computing, Ethics, and Society Foundations</a>
             </li>    
             <li>
-                <a href="CCoursera OESUYTTW7517.pdf" target="_blank">Think Again IV: How to Avoid Fallacies</a>
+                <a href="Coursera OESUYTTW7517.pdf" target="_blank">Think Again IV: How to Avoid Fallacies</a>
             </li>   
         </ul>
 
@@ -63,6 +186,19 @@
     <button onclick="toggleTheme()">Switch Theme</button>
 </div>
 
-<script src="script.js"></script>
+<script>
+    function toggleTheme() {
+        const body = document.body;
+       
+        const currentTheme = body.getAttribute('data-theme');
+        
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+        }
+    }
+</script>
+
 </body>
 </html>
