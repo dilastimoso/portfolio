@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 20px;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+
+.container h1,
+.container img,
+.container p,
+button {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+}
+
+.profile {
+    width: 150px;
+    border-radius: 50%;
+}
+
+
+.info-section {
+    text-align: left;
+    max-width: 500px;
+    margin-left: 0;    
+    margin-top: 20px;
+}
+
+.info-section ul {
+    padding-left: 20px;
+}
